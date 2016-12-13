@@ -47,5 +47,7 @@ public class MovePlayer : MonoBehaviour {
         {
             transform.Translate(0f, 0f, zVal);
         }
+
+        float rot1 = Input.GetAxis("rVert");
 	}
 }
