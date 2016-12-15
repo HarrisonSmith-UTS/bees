@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour {
 
+    public float rotationalSpeed;
     float xRotVal;
     float yRotVal;
 
@@ -15,7 +16,7 @@ public class Rotation : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        float xInputVal = Input.GetAxis("Horizontal");
+        /*float xInputVal = Input.GetAxis("Horizontal");
         float yInputVal = Input.GetAxis("Vertical");
 
         if (yInputVal != 0)
@@ -26,9 +27,22 @@ public class Rotation : MonoBehaviour {
    
         if (xInputVal != 0)
         {
-            xRotVal = 90 * xInputVal;
+            //xRotVal = 90 * xInputVal;
+            xRotVal = xInputVal;
+            transform.Rotate(Vector3.up, xRotVal);
             print(xRotVal);
+        }*/
+
+        bool leftRot = Input.GetButton("Fire1");
+        bool rightRot = Input.GetButton("Fire2");
+
+        if (leftRot)
+        {
+            transform.Rotate(Vector3.up, -rotationalSpeed);
         }
-  
+        if (rightRot)
+        {
+            transform.Rotate(Vector3.up, rotationalSpeed);
+        }
     }
 }
