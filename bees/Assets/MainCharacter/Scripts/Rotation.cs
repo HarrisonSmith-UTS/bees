@@ -33,6 +33,7 @@ public class Rotation : MonoBehaviour {
             print(xRotVal);
         }*/
 
+        /*
         float leftRot = Input.GetAxis("rHor");
         float rightRot = Input.GetAxis("rVert");
 
@@ -44,5 +45,25 @@ public class Rotation : MonoBehaviour {
         {
             transform.Rotate(Vector3.up, rightRot * rotationalSpeed);
         }
+        */
+
+
+        float leftRot = Input.GetAxis("rHor") * -1;
+        float rightRot = Input.GetAxis("rVert") * -1;
+
+        //print(leftRot);
+        //print(rightRot);
+
+        if (leftRot != 0
+            &&
+            rightRot != 0)
+
+        {
+            float radians = Mathf.Atan2(leftRot, rightRot);
+            float rotate = radians * (180 / Mathf.PI);
+            //print(radians);
+            transform.rotation = Quaternion.Euler(0, rotate, 0);
+        }
+
     }
 }
