@@ -29,6 +29,6 @@ public class MovePlayer : MonoBehaviour {
         float xVal = Input.GetAxis("Horizontal");
         float zVal = Input.GetAxis("Vertical");
 
-            transform.Translate(xVal * Time.deltaTime * speed, 0f, zVal * Time.deltaTime * speed, Space.World);
+        transform.Translate(xVal * Time.deltaTime * speed, 0f, zVal * Time.deltaTime * speed, Space.World);
 	}
 }
