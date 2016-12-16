@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour {
 
-    public float rotationalSpeed;
+    public float rotationalSpeed = 10;
     float xRotVal;
     float yRotVal;
 
@@ -33,16 +33,16 @@ public class Rotation : MonoBehaviour {
             print(xRotVal);
         }*/
 
-        bool leftRot = Input.GetButton("Fire1");
-        bool rightRot = Input.GetButton("Fire2");
+        float leftRot = Input.GetAxis("rHor");
+        float rightRot = Input.GetAxis("rVert");
 
-        if (leftRot)
+        if (leftRot != 0)
         {
-            transform.Rotate(Vector3.up, -rotationalSpeed);
+            transform.Rotate(Vector3.up, leftRot * rotationalSpeed);
         }
-        if (rightRot)
+        if (rightRot != 0)
         {
-            transform.Rotate(Vector3.up, rotationalSpeed);
+            transform.Rotate(Vector3.up, rightRot * rotationalSpeed);
         }
     }
 }
