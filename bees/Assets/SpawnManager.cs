@@ -11,21 +11,19 @@ public class SpawnManager : MonoBehaviour {
     float iteratorTimer = 0;
     float spawnIterator = 0;
     public float spawnRate = 0;
-
+    public float difficultySteps = 10;
 //position variables to determine where the bees will spawn within a spawn zone
     float xPos;
     float yPos;
 
-    float spawnTimer = 0;
+    public float spawnTimer = 0;
     
     private void Update()
     {
-        //reset spawn timer
-        float spawnTimer = Time.deltaTime;
-
+        spawnTimer += Time.deltaTime;
         //increment the spawnIterator to ramp up bee spawn rate over time
         iteratorTimer += Time.deltaTime;
-        if (iteratorTimer >= 10)
+        if (iteratorTimer >= difficultySteps)
         {
             iteratorTimer = 0;
             spawnIterator += 1;
