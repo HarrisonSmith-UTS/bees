@@ -8,9 +8,9 @@ public class Rotation : MonoBehaviour {
 	void Start ()
     {	
 	}
-	
-	// Update is called once per frame
-	void Update ()
+    public float deadzone = 0.025f;
+    // Update is called once per frame
+    void Update ()
     {
        
 
@@ -18,8 +18,14 @@ public class Rotation : MonoBehaviour {
         float ry = Input.GetAxis("Right_Vertical");
 
         float angle = Mathf.Atan2(rx, ry);
+        angle = angle * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.EulerAngles(0,angle,0);
+        float distance = Mathf.Sqrt(Mathf.Pow(rx, 2f)+ Mathf.Pow(ry, 2f));
 
+
+        if (distance > deadzone)
+        {
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+        }
     }
 }
