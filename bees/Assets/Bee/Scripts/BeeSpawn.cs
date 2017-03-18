@@ -8,25 +8,19 @@ public class BeeSpawn: MonoBehaviour {
 	void Start ()
     {
     }
-    float timer = 0;
+    float iteratorTimer = 0;
     float spawnIterator = 0;
-    public float spawnRate;
+    public float spawnRate = 0;
 
-    public object beePrefab;
-    bool disabled;
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
-        if(timer >= 30)
+        iteratorTimer += Time.deltaTime;
+        if(iteratorTimer >= 30)
         {
-            timer = 0;
+            iteratorTimer = 0;
             spawnIterator += 1;
         }
 
         spawnRate = 5 + (2 * spawnIterator);
-
-
     }
 }
