@@ -20,7 +20,6 @@ public class SpawnManager : MonoBehaviour {
     
     private void Update()
     {
-        something = Random.value;
         spawnTimer += Time.deltaTime;
         //increment the spawnIterator to ramp up bee spawn rate over time
         iteratorTimer += Time.deltaTime;
