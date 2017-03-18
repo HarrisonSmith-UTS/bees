@@ -7,17 +7,17 @@ public class HealthManager : MonoBehaviour
     public float health;
     public float defenceModifier = 1f;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+
+    }
 
     //Update is called on a fixed basis
     void FixedUpdate()
@@ -25,23 +25,20 @@ public class HealthManager : MonoBehaviour
         if (health <= 0f)
         {
             //Death occurs, calls the 'Die' method on this object
-            SendMessage("Die");
+            SendMessage("die");
         }
     }
 
-    /// <summary>
-    /// Call this when taking damage
-    /// </summary>
-    void TakeDamage()
-    {
-        //Decrements health by a default amount of damage (1f)
-        TakeDamage(1f);
-    }
+    //public void die()
+    //{
+    //Should probably not implement here as it is specific to an object? E.g a bee would die but be disabled for re-instantiation later possibly
+    //And a player would have other things they would set off like game over screen
+    //}
 
     /// <summary>
     /// Call this when taking damage and supply the amount of damage dealt
     /// </summary>
-    void TakeDamage(float damage)
+    public void takeDamage(float damage)
     {
         //Decrements health by however much damage
         health -= damage * defenceModifier;
