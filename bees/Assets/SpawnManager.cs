@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
-
+    
 //bee prefab goes here
     public GameObject beePrefab;
 
@@ -15,11 +15,12 @@ public class SpawnManager : MonoBehaviour {
 //position variables to determine where the bees will spawn within a spawn zone
     float xPos;
     float yPos;
-
+    float something;
     public float spawnTimer = 0;
     
     private void Update()
     {
+        something = Random.value;
         spawnTimer += Time.deltaTime;
         //increment the spawnIterator to ramp up bee spawn rate over time
         iteratorTimer += Time.deltaTime;
